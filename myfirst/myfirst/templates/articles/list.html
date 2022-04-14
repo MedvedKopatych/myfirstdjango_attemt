@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Last articles{% endblock %}</title>
+
+{% block content %}
+
+    {% if latest_articles_list %}
+
+        {% for a in latest_articles_list %}
+            <a href="{% url 'articles:detail' a.id%}">{{a.article_title}}</a>
+        {% endfor %}
+
+    {% else %}
+        Articles not found
+    {% endif %}
+
+{% endblock %}
